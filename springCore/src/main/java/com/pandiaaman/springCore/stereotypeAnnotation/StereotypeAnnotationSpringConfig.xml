@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- bean definitions here -->
+
+	<context:annotation-config/>
+	<context:component-scan base-package="com.pandiaaman.springCore.stereotypeAnnotation"></context:component-scan>
+	
+	<!-- to put collections like list, maps and sets in the values
+		now since we are not using beans explicitly here, so we can not do that, check : standAloneCollections package
+		so now we create the collection here using the util package of spring context and then later use them as values
+	 -->
+	 
+	 <util:list list-class="java.util.LinkedList" id="studEmails">
+	 	<value>asddf@gmail.com</value>
+	 	<value>wer@gmail.com</value>
+	 	<value>xcvb@gmail.com</value>
+	 </util:list>
+	 
+	 <util:map map-class="java.util.TreeMap" id="studScores">
+	 	<entry key="maths" value="80"/>
+	 	<entry key="english" value="90"/>
+	 	<entry key="science" value="98"/>
+	 	<entry key="social studies" value="78"/>
+	 </util:map>
+	 
+	 <util:set set-class="java.util.HashSet" id="addressPhones">
+	 	<value>8646815</value>
+	 	<value>4568432</value>
+	 	<value>7864532</value>
+	 </util:set>
+	
+</beans>
